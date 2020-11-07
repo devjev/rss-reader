@@ -1,0 +1,8 @@
+[meta]
+name = "Conventional News"
+
+[content]
+feeds = [
+  {name = "BBC Top Stories", uri = "http://feeds.bbci.co.uk/news/rss.xml"},
+  {name = "CNN Top Stories", uri = "http://rss.cnn.com/rss/edition.rss"},
+]
