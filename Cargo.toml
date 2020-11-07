@@ -6,6 +6,7 @@ version = "0.1.0"
 
 [dependencies]
 feed-rs = "0.4"
+isahc = "0.9"
 serde = "1"
 structopt = "0.3"
 toml = "0.5"

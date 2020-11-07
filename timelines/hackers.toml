@@ -6,5 +6,4 @@ feeds = [
   {name = "Paulie G.", uri = "http://www.aaronsw.com/2002/feeds/pgessays.rss"},
   {name = "The Digital Antiquarian", uri = "https://www.filfre.net/feed/rss/"},
   {name = "Denny Britz", uri = "https://dennybritz.com/rss.xml"},
-  {name = "Dave Rupert", uri = "https://daverupert.com/atom.xml"},
 ]

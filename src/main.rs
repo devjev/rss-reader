@@ -1,3 +1,4 @@
+use isahc::prelude::*;
 use serde::Deserialize;
 use std::fs::File;
 use std::io::Read;
@@ -12,7 +13,16 @@ fn main() -> std::io::Result<()> {
         let mut payload = String::new();
         fh.read_to_string(&mut payload)?;
         let timeline: TimelineSpec = toml::from_str(&payload)?;
-        println!("{:#?}", timeline);
+
+        for feed_spec in timeline.content.feeds.iter() {
+            let mut response = isahc::get(&feed_spec.uri)?;
+            let text = response.text()?;
+            if let Ok(feed) = feed_rs::parser::parse(text.as_bytes()) {
+                println!("{:#?}", feed);
+            } else {
+                println!(">> failed parsing: {}", feed_spec.uri);
+            }
+        }
     }
     Ok(())
 }
